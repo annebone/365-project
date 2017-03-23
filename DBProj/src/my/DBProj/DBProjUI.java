@@ -5,7 +5,7 @@ import java.util.*;
 import javax.swing.*;
 /**
  *
- * @author Brandon Dimaya
+ * @authors Brandon Dimaya, Anne Bone, Tristan Honda
  */
 public class DBProjUI extends javax.swing.JFrame {
     
@@ -912,6 +912,7 @@ public class DBProjUI extends javax.swing.JFrame {
     }//GEN-LAST:event_AddRestsButtonActionPerformed
 
     private void AddMenuItemButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AddMenuItemButtonActionPerformed
+        AddItemRest.setModel(new javax.swing.DefaultComboBoxModel(GetRestaurantNames()));
         AddItem.pack();
         AddItem.setLocationRelativeTo(null);
         AddItem.revalidate();
@@ -920,6 +921,7 @@ public class DBProjUI extends javax.swing.JFrame {
     }//GEN-LAST:event_AddMenuItemButtonActionPerformed
 
     private void AddReviewButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AddReviewButtonActionPerformed
+        AddReviewRest.setModel(new javax.swing.DefaultComboBoxModel(GetRestaurantNames()));
         AddReview.pack();
         AddReview.setLocationRelativeTo(null);
         AddReview.revalidate();
@@ -928,6 +930,10 @@ public class DBProjUI extends javax.swing.JFrame {
     }//GEN-LAST:event_AddReviewButtonActionPerformed
 
     private void AllRestaurantsButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AllRestaurantsButtonActionPerformed
+        AllRestaurantsRests.setModel(new javax.swing.DefaultComboBoxModel(GetRestaurantNames()));
+        AllAddressPane.setText(GetRestaurantAddress(GetRestaurantNames()[0]));
+        AllPhonePane.setText(GetRestaurantPhone(GetRestaurantNames()[0]));
+        AllRatingPane.setText(GetRestaurantRating(GetRestaurantNames()[0]));
         AllRestaurants.pack();
         AllRestaurants.setLocationRelativeTo(null);
         AllRestaurants.revalidate();
@@ -950,8 +956,12 @@ public class DBProjUI extends javax.swing.JFrame {
     }//GEN-LAST:event_AllRestaurantsRestsActionPerformed
 
     private void RestsMenusButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RestsMenusButtonActionPerformed
+        RestaurantMenusRests.setModel(new javax.swing.DefaultComboBoxModel(GetRestaurantNames()));
+        RestaurantMenusPane.setText(GetRestaurantMenu(GetRestaurantNames()[0]));
         RestaurantMenus.pack();
         RestaurantMenus.setLocationRelativeTo(null);
+        RestaurantMenus.revalidate();
+        RestaurantMenus.repaint();
         RestaurantMenus.setVisible(true);
     }//GEN-LAST:event_RestsMenusButtonActionPerformed
 
@@ -968,8 +978,12 @@ public class DBProjUI extends javax.swing.JFrame {
     }//GEN-LAST:event_ReviewsByRestBackButtonActionPerformed
 
     private void ReviewByRestsButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ReviewByRestsButtonActionPerformed
+        ReviewsByRestRests.setModel(new javax.swing.DefaultComboBoxModel(GetRestaurantNames()));
+        ReviewsByRestPane.setText(GetRestaurantReviews(GetRestaurantNames()[0]));
         ReviewsByRestaurant.pack();
         ReviewsByRestaurant.setLocationRelativeTo(null);
+        ReviewsByRestaurant.revalidate();
+        ReviewsByRestaurant.repaint();
         ReviewsByRestaurant.setVisible(true);
     }//GEN-LAST:event_ReviewByRestsButtonActionPerformed
 
@@ -992,6 +1006,7 @@ public class DBProjUI extends javax.swing.JFrame {
     }//GEN-LAST:event_ReviewByUserBackButtonActionPerformed
 
     private void MakeOrderButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MakeOrderButtonActionPerformed
+        MakeOrderRests.setModel(new javax.swing.DefaultComboBoxModel(GetRestaurantNames()));
         MakeOrder.pack();
         MakeOrder.setLocationRelativeTo(null);
         MakeOrder.setVisible(true);
